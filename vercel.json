@@ -5,15 +5,42 @@
       "src": "package.json",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["db.json"]
+        "includeFiles": ["db.json", "vercel-build.sh"]
       }
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "admin/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "lost-found/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "second-hand/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "activity-wall/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "/"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/",
-      "methods": ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
+      "dest": "/$1"
     }
   ],
   "headers": [
@@ -22,8 +49,7 @@
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PATCH,DELETE,OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" },
-        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" }
       ]
     }
   ]
