@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布活动 - 校园活动墙</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/modal.css">
+  <link rel="stylesheet" href="./activity-wall.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="logo">校园信息服务平台</div>
+    <div class="auth-buttons">
+      <button id="loginBtn">登录</button>
+      <button id="registerBtn">注册</button>
+      <button id="adminEntrance" class="admin-entrance">管理员后台</button>
+    </div>
+  </header>
+
+  <!-- 主容器 -->
+  <div class="container">
+    <!-- 侧边导航 -->
+    <aside class="sidebar">
+      <div class="nav-item"><a href="../index.html">首页</a></div>
+      <div class="nav-item"><a href="../lost-found/index.html">失物招领</a></div>
+      <div class="nav-item"><a href="../second-hand/index.html">校园二手</a></div>
+      <div class="nav-item"><a href="./index.html">校园活动墙</a></div>
+    </aside>
+
+    <!-- 内容区 -->
+    <main class="content">
+      <h2>发布校园活动</h2>
+      <form class="publish-form" id="activityWallForm">
+        <div class="form-group">
+          <label for="title">活动标题</label>
+          <input type="text" id="title" placeholder="请输入活动标题（如：校园篮球赛报名）" required>
+        </div>
+        <div class="form-group">
+          <label for="time">活动时间</label>
+          <input type="date" id="time" required>
+        </div>
+        <div class="form-group">
+          <label for="description">活动描述</label>
+          <textarea id="description" rows="6" placeholder="请输入活动详情、报名方式、地点等" required></textarea>
+        </div>
+        <button type="submit">发布</button>
+      </form>
+    </main>
+  </div>
+
+  <!-- 登录注册弹窗 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <div class="modal-tabs">
+        <div class="modal-tab active" id="loginTab">登录</div>
+        <div class="modal-tab" id="registerTab">注册</div>
+      </div>
+      <!-- 登录表单 -->
+      <form class="modal-form active" id="loginForm">
+        <div class="form-group">
+          <label for="loginUsername">用户名</label>
+          <input type="text" id="loginUsername" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">密码</label>
+          <input type="password" id="loginPassword" placeholder="请输入密码">
+          <div class="error-tip" id="loginError"></div>
+        </div>
+        <button type="submit">登录</button>
+      </form>
+      <!-- 注册表单 -->
+      <form class="modal-form" id="registerForm">
+        <div class="form-group">
+          <label for="registerUsername">用户名</label>
+          <input type="text" id="registerUsername" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">密码</label>
+          <input type="password" id="registerPassword" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">确认密码</label>
+          <input type="password" id="confirmPassword" placeholder="请再次输入密码">
+          <div class="error-tip" id="registerError"></div>
+        </div>
+        <button type="submit">注册</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 脚本引入 -->
+  <script type="module" src="../assets/js/auth.js"></script>
+  <script type="module" src="./activity-wall.js"></script>
+</body>
+</html>

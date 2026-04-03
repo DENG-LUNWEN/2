@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理员控制台</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="./admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="logo">管理员控制台</div>
+  <div class="auth-buttons">
+    <span>欢迎, <span id="adminName">Admin</span></span>
+    <button id="logoutBtn">退出登录</button>
+  </div>
+</header>
+
+<div class="container">
+  <aside class="sidebar">
+    <div class="nav-item active" data-page="overview">数据概览</div>
+    <div class="nav-item" data-page="user">用户管理</div>
+    <div class="nav-item" data-page="lost">
+      失物招领管理
+      <span class="badge" id="lostBadge">0</span>
+    </div>
+    <div class="nav-item" data-page="second">
+      二手平台管理
+      <span class="badge" id="secondBadge">0</span>
+    </div>
+    <div class="nav-item" data-page="activity">
+      活动墙管理
+      <span class="badge" id="activityBadge">0</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <!-- 概览 -->
+    <div class="page-content" id="overviewPage">
+      <div class="stats-cards">
+        <div class="card"><div class="number" id="userCount">0</div><div class="label">总用户数</div></div>
+        <div class="card"><div class="number" id="lostCount">0</div><div class="label">失物招领总数</div></div>
+        <div class="card"><div class="number" id="secondCount">0</div><div class="label">二手信息总数</div></div>
+        <div class="card"><div class="number" id="activityCount">0</div><div class="label">活动墙总数</div></div>
+      </div>
+      <div class="quick-actions">
+        <button class="action-btn btn-blue" id="auditBtn">待审核</button>
+        <button class="action-btn btn-yellow" id="manageUserBtn">用户管理</button>
+        <button class="action-btn btn-green" id="reportBtn">生成报告</button>
+      </div>
+      <div class="chart-container">
+        <h3>近7天发布趋势</h3>
+        <div class="chart" id="trendChart"></div>
+      </div>
+    </div>
+
+    <!-- 用户 -->
+    <div class="page-content" id="userPage" style="display:none">
+      <h2>用户管理</h2>
+      <table class="admin-list">
+        <thead><tr><th>ID</th><th>用户名</th><th>角色</th><th>操作</th></tr></thead>
+        <tbody id="userTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- 失物 -->
+    <div class="page-content" id="lostPage" style="display:none">
+      <h2>失物招领管理</h2>
+      <div class="filter-box">
+        <select class="status-filter" data-target="lost">
+          <option value="all">全部</option>
+          <option value="0">待审核</option>
+          <option value="1">已通过</option>
+          <option value="2">已驳回</option>
+        </select>
+      </div>
+      <table class="admin-list">
+        <thead><tr><th>ID</th><th>标题</th><th>类型</th><th>发布人</th><th>状态</th><th>操作</th></tr></thead>
+        <tbody id="lostTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- 二手 -->
+    <div class="page-content" id="secondPage" style="display:none">
+      <h2>二手平台管理</h2>
+      <div class="filter-box">
+        <select class="status-filter" data-target="second">
+          <option value="all">全部</option>
+          <option value="0">待审核</option>
+          <option value="1">已通过</option>
+          <option value="2">已驳回</option>
+        </select>
+      </div>
+      <table class="admin-list">
+        <thead><tr><th>ID</th><th>标题</th><th>价格</th><th>发布人</th><th>状态</th><th>操作</th></tr></thead>
+        <tbody id="secondTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- 活动 -->
+    <div class="page-content" id="activityPage" style="display:none">
+      <h2>活动墙管理</h2>
+      <div class="filter-box">
+        <select class="status-filter" data-target="activity">
+          <option value="all">全部</option>
+          <option value="0">待审核</option>
+          <option value="1">已通过</option>
+          <option value="2">已驳回</option>
+        </select>
+      </div>
+      <table class="admin-list">
+        <thead><tr><th>ID</th><th>标题</th><th>时间</th><th>发布人</th><th>状态</th><th>操作</th></tr></thead>
+        <tbody id="activityTableBody"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="./admin.js"></script>
+</body>
+</html>

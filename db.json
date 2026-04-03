@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "student1",
+      "password": "123456",
+      "role": "user"
+    }
+  ],
+  "lost-found": [
+    {
+      "id": "1",
+      "title": "丢失校园卡",
+      "description": "在图书馆三楼丢失粉色卡套的校园卡，学号2023001，联系电话13800138000",
+      "type": "lost",
+      "publishTime": "2026-04-01",
+      "publisher": "student1"
+    }
+  ],
+  "second-hand": [
+    {
+      "id": "1",
+      "title": "出闲置笔记本电脑",
+      "description": "联想小新Pro14，2024款，使用半年，无磕碰，价格4500元",
+      "price": 4500,
+      "publishTime": "2026-04-01",
+      "publisher": "student1"
+    }
+  ],
+  "activity-wall": [
+    {
+      "id": "1",
+      "title": "校园篮球赛报名",
+      "description": "4月10日校体育馆举办篮球赛，各学院组队报名，截止时间4月5日",
+      "time": "2026-04-10",
+      "publishTime": "2026-04-01",
+      "publisher": "admin"
+    },
+    {
+      "title": "校园拔河比赛",
+      "time": "2026-04-03",
+      "description": "asdasd",
+      "publishTime": "2026-04-03",
+      "publisher": "admin",
+      "id": "E5ESzscDizM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

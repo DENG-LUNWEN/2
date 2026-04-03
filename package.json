@@ -1,0 +1,13 @@
+{
+  "name": "campus-platform",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "json-server --watch db.json --port $PORT"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园信息服务平台</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/modal.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="logo">校园信息服务平台</div>
+    <div class="auth-buttons">
+      <button id="loginBtn">登录</button>
+      <button id="registerBtn">注册</button>
+      <button id="adminEntrance" class="admin-entrance">管理员后台</button>
+    </div>
+  </header>
+
+  <!-- 主容器 -->
+  <div class="container">
+    <!-- 侧边导航 -->
+    <aside class="sidebar">
+      <div class="nav-item"><a href="./index.html">首页</a></div>
+      <div class="nav-item"><a href="./lost-found/index.html">失物招领</a></div>
+      <div class="nav-item"><a href="./second-hand/index.html">校园二手</a></div>
+      <div class="nav-item"><a href="./activity-wall/index.html">校园活动墙</a></div>
+    </aside>
+
+    <!-- 内容区 -->
+    <main class="content">
+      <!-- 模块入口 -->
+      <div class="module-entrances">
+        <button class="module-btn btn-lost-found" onclick="window.location.href='./lost-found/index.html'">
+          失物招领
+        </button>
+        <button class="module-btn btn-second-hand" onclick="window.location.href='./second-hand/index.html'">
+          校园二手平台
+        </button>
+        <button class="module-btn btn-activity" onclick="window.location.href='./activity-wall/index.html'">
+          校园活动墙
+        </button>
+      </div>
+
+      <!-- 最新内容展示 -->
+      <div class="latest-content">
+        <h2>最新发布</h2>
+        <div class="content-list" id="latestContentList">
+          <!-- 动态加载内容 -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 登录注册弹窗 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <div class="modal-tabs">
+        <div class="modal-tab active" id="loginTab">登录</div>
+        <div class="modal-tab" id="registerTab">注册</div>
+      </div>
+      <!-- 登录表单 -->
+      <form class="modal-form active" id="loginForm">
+        <div class="form-group">
+          <label for="loginUsername">用户名</label>
+          <input type="text" id="loginUsername" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">密码</label>
+          <input type="password" id="loginPassword" placeholder="请输入密码">
+          <div class="error-tip" id="loginError"></div>
+        </div>
+        <button type="submit">登录</button>
+      </form>
+      <!-- 注册表单 -->
+      <form class="modal-form" id="registerForm">
+        <div class="form-group">
+          <label for="registerUsername">用户名</label>
+          <input type="text" id="registerUsername" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">密码</label>
+          <input type="password" id="registerPassword" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">确认密码</label>
+          <input type="password" id="confirmPassword" placeholder="请再次输入密码">
+          <div class="error-tip" id="registerError"></div>
+        </div>
+        <button type="submit">注册</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 脚本引入 -->
+  <script type="module" src="./assets/js/auth.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
